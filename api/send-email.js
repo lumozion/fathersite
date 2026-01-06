@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -12,36 +12,28 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Create transporter using Gmail SMTP
-    const transporter = nodemailer.createTransporter({
-      service: 'gmail',
-      auth: {
-        user: 'vinitasthana9@gmail.com',
-        pass: 'AshwinAsthana27.'
-      }
+    // Use Formspree or similar service for reliable email delivery
+    const response = await fetch('https://formspree.io/f/xpwzgkqr', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        company: company || 'Not specified',
+        message: message,
+        _replyto: email,
+        _subject: `New Inquiry from ${name}`,
+        _to: 'info@srelectronics.store'
+      })
     });
 
-    // Email content
-    const mailOptions = {
-      from: 'vinitasthana9@gmail.com',
-      to: 'info@srelectronics.store',
-      subject: `New Inquiry from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Full Name:</strong> ${name}</p>
-        <p><strong>Email Address:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company || 'Not specified'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-        <hr>
-        <p><small>Sent from S.R. Electronics website contact form</small></p>
-      `,
-      replyTo: email
-    };
-
-    await transporter.sendMail(mailOptions);
-    
-    res.status(200).json({ message: 'Email sent successfully' });
+    if (response.ok) {
+      res.status(200).json({ message: 'Email sent successfully' });
+    } else {
+      throw new Error('Failed to send email');
+    }
   } catch (error) {
     console.error('Email error:', error);
     res.status(500).json({ message: 'Failed to send email' });
