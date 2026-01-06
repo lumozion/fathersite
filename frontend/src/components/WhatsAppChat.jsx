@@ -3,13 +3,27 @@ import { MessageCircle, X, Send } from 'lucide-react';
 
 const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSendMessage = () => {
-    if (message.trim()) {
-      const whatsappUrl = `https://wa.me/919313618021?text=${encodeURIComponent(message)}`;
+    const { fullName, email, company, message } = formData;
+    if (fullName.trim() && email.trim() && message.trim()) {
+      const whatsappMessage = `Full Name: ${fullName}\n\nEmail Address: ${email}\n\nCompany: ${company || 'Not specified'}\n\nMessage: ${message}`;
+      const whatsappUrl = `https://wa.me/919313618021?text=${encodeURIComponent(whatsappMessage)}`;
       window.open(whatsappUrl, '_blank');
-      setMessage('');
+      setFormData({ fullName: '', email: '', company: '', message: '' });
       setIsOpen(false);
     }
   };
@@ -18,7 +32,7 @@ const WhatsAppChat = () => {
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 animate-float">
+        <div className="fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 animate-float">
           {/* Header */}
           <div className="bg-[#C5A572] text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -29,7 +43,7 @@ const WhatsAppChat = () => {
               </div>
               <div>
                 <h3 className="font-medium">S.R. Electronics</h3>
-                <p className="text-xs opacity-90">Typically replies instantly</p>
+                <p className="text-xs opacity-90">Send us an inquiry</p>
               </div>
             </div>
             <button
@@ -40,33 +54,67 @@ const WhatsAppChat = () => {
             </button>
           </div>
 
-          {/* Chat Body */}
-          <div className="p-4 h-32 bg-gray-50">
-            <div className="bg-white p-3 rounded-lg shadow-sm">
-              <p className="text-sm text-gray-600">
-                Hi! How can we help you today? Send us a message and we'll get back to you right away.
-              </p>
+          {/* Form */}
+          <div className="p-4 space-y-4 max-h-96 overflow-y-auto">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                placeholder="Enter your name"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C5A572] text-sm"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Enter your email"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C5A572] text-sm"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Company</label>
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                placeholder="Enter your company name"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C5A572] text-sm"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Enter your message"
+                rows={3}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C5A572] text-sm resize-none"
+              />
             </div>
           </div>
 
-          {/* Input */}
+          {/* Send Button */}
           <div className="p-4 border-t">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type your message..."
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C5A572] text-sm"
-                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-              />
-              <button
-                onClick={handleSendMessage}
-                className="bg-[#C5A572] text-white p-2 rounded-lg hover:bg-[#B8956A] transition-colors"
-              >
-                <Send size={16} />
-              </button>
-            </div>
+            <button
+              onClick={handleSendMessage}
+              disabled={!formData.fullName.trim() || !formData.email.trim() || !formData.message.trim()}
+              className="w-full bg-[#C5A572] text-white py-3 rounded-lg hover:bg-[#B8956A] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-medium"
+            >
+              <Send size={16} />
+              Send to WhatsApp
+            </button>
           </div>
         </div>
       )}
