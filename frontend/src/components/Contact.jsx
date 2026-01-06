@@ -41,40 +41,16 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Send structured email to info@srelectronics.store
-      const emailData = {
-        to: 'info@srelectronics.store',
-        subject: `New Inquiry from ${formData.name}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Full Name:</strong> ${formData.name}</p>
-          <p><strong>Email Address:</strong> ${formData.email}</p>
-          <p><strong>Company:</strong> ${formData.company || 'Not specified'}</p>
-          <p><strong>Message:</strong></p>
-          <p>${formData.message.replace(/\n/g, '<br>')}</p>
-          <hr>
-          <p><small>Sent from S.R. Electronics website contact form</small></p>
-        `
-      };
-
-      // Using EmailJS or similar service
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          service_id: 'service_srelectronics',
-          template_id: 'template_contact',
-          user_id: 'user_srelectronics',
-          template_params: {
-            to_email: 'info@srelectronics.store',
-            from_name: formData.name,
-            from_email: formData.email,
-            company: formData.company || 'Not specified',
-            message: formData.message,
-            subject: `New Inquiry from ${formData.name}`
-          }
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message
         })
       });
 
