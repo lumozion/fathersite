@@ -41,27 +41,51 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Send via WhatsApp Business API (free)
-      const message = `🔔 New inquiry!\n\n👤 ${formData.name}\n📧 ${formData.email}\n🏢 ${formData.company}\n💬 ${formData.message}`;
-      
-      await fetch('https://graph.facebook.com/v17.0/YOUR_PHONE_NUMBER_ID/messages', {
+      // Send structured email to info@srelectronics.store
+      const emailData = {
+        to: 'info@srelectronics.store',
+        subject: `New Inquiry from ${formData.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Full Name:</strong> ${formData.name}</p>
+          <p><strong>Email Address:</strong> ${formData.email}</p>
+          <p><strong>Company:</strong> ${formData.company || 'Not specified'}</p>
+          <p><strong>Message:</strong></p>
+          <p>${formData.message.replace(/\n/g, '<br>')}</p>
+          <hr>
+          <p><small>Sent from S.R. Electronics website contact form</small></p>
+        `
+      };
+
+      // Using EmailJS or similar service
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messaging_product: 'whatsapp',
-          to: '919876543210', // Your father's WhatsApp number
-          type: 'text',
-          text: { body: message }
+          service_id: 'service_srelectronics',
+          template_id: 'template_contact',
+          user_id: 'user_srelectronics',
+          template_params: {
+            to_email: 'info@srelectronics.store',
+            from_name: formData.name,
+            from_email: formData.email,
+            company: formData.company || 'Not specified',
+            message: formData.message,
+            subject: `New Inquiry from ${formData.name}`
+          }
         })
       });
 
-      toast.success('Thank you! We will contact you soon.');
-      setFormData({ name: '', email: '', company: '', message: '' });
+      if (response.ok) {
+        toast.success('Thank you! Your inquiry has been sent successfully.');
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
-      toast.error('Something went wrong. Please try again.');
+      toast.error('Something went wrong. Please try again or contact us directly.');
     }
 
     setIsSubmitting(false);

@@ -88,7 +88,7 @@ const About = () => {
                       <img
                         src="/dad.jpeg"
                         alt="Rajesh Asthana - Founder"
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   </div>
