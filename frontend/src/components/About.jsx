@@ -84,10 +84,12 @@ const About = () => {
               <div className="flex justify-center lg:justify-start">
                 <div className="relative">
                   <div className="w-48 h-48 rounded-full bg-gradient-to-br from-[#C5A572] to-[#b87333] p-1">
-                    <div className="w-full h-full rounded-full bg-[#f8f7f2] flex items-center justify-center">
-                      <div className="w-40 h-40 rounded-full bg-gradient-to-br from-[#e5e5e0] to-[#d4d4d0] flex items-center justify-center">
-                        <Users size={60} className="text-[#8a8a8a]" />
-                      </div>
+                    <div className="w-full h-full rounded-full overflow-hidden">
+                      <img
+                        src="/dad.jpeg"
+                        alt="Rajesh Asthana - Founder"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                   <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-[#C5A572] rounded-full flex items-center justify-center">
