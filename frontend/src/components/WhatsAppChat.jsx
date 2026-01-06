@@ -20,7 +20,7 @@ const WhatsAppChat = () => {
       {isOpen && (
         <div className="fixed bottom-24 right-6 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 animate-float">
           {/* Header */}
-          <div className="bg-[#25D366] text-white p-4 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-[#C5A572] text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                 <MessageCircle size={20} />
@@ -55,12 +55,12 @@ const WhatsAppChat = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#25D366] text-sm"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#C5A572] text-sm"
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
               />
               <button
                 onClick={handleSendMessage}
-                className="bg-[#25D366] text-white p-2 rounded-lg hover:bg-[#20B858] transition-colors"
+                className="bg-[#C5A572] text-white p-2 rounded-lg hover:bg-[#B8956A] transition-colors"
               >
                 <Send size={16} />
               </button>
@@ -72,7 +72,7 @@ const WhatsAppChat = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50 animate-pulse-glow"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-[#C5A572] text-white rounded-full shadow-lg hover:shadow-xl hover:bg-[#B8956A] transition-all duration-300 flex items-center justify-center z-50 animate-pulse-glow"
       >
         {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
       </button>
