@@ -41,16 +41,24 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send-email', {
+      // Direct form submission to Netlify Forms
+      const formData = new FormData();
+      formData.append('form-name', 'contact');
+      formData.append('name', formData.name);
+      formData.append('email', formData.email);
+      formData.append('company', formData.company);
+      formData.append('message', formData.message);
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          'form-name': 'contact',
+          'name': formData.name,
+          'email': formData.email,
+          'company': formData.company || 'Not specified',
+          'message': formData.message,
+          'subject': `New Inquiry from ${formData.name}`
         })
       });
 
@@ -58,10 +66,20 @@ const Contact = () => {
         toast.success('Thank you! Your inquiry has been sent successfully.');
         setFormData({ name: '', email: '', company: '', message: '' });
       } else {
-        throw new Error('Failed to send email');
+        // Fallback to mailto
+        const subject = `New Inquiry from ${formData.name}`;
+        const body = `Full Name: ${formData.name}\n\nEmail: ${formData.email}\n\nCompany: ${formData.company || 'Not specified'}\n\nMessage:\n${formData.message}`;
+        window.open(`mailto:info@srelectronics.store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        toast.success('Email client opened. Please send the email.');
+        setFormData({ name: '', email: '', company: '', message: '' });
       }
     } catch (error) {
-      toast.error('Something went wrong. Please try again or contact us directly.');
+      // Fallback to mailto
+      const subject = `New Inquiry from ${formData.name}`;
+      const body = `Full Name: ${formData.name}\n\nEmail: ${formData.email}\n\nCompany: ${formData.company || 'Not specified'}\n\nMessage:\n${formData.message}`;
+      window.open(`mailto:info@srelectronics.store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      toast.success('Email client opened. Please send the email.');
+      setFormData({ name: '', email: '', company: '', message: '' });
     }
 
     setIsSubmitting(false);
