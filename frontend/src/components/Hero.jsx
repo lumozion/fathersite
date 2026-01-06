@@ -4,15 +4,31 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsLoaded(true);
+    
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100
+      });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden">
+    <section className="relative h-screen min-h-[700px] overflow-hidden parallax-container">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div 
+        className="absolute inset-0 parallax-element"
+        style={{
+          transform: `translate3d(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px, 0) scale(1.1)`
+        }}
+      >
         <img
           src={heroData.backgroundImage}
           alt="Premium transformers manufacturing"
@@ -30,20 +46,20 @@ const Hero = () => {
           }`}
         >
           {/* Title */}
-          <h1 className="hero-title text-white mb-6">
+          <h1 className="hero-title text-white mb-6 animate-text-reveal">
             {heroData.title}
           </h1>
 
           {/* Decorative Line */}
           <div
-            className={`w-24 h-px bg-[#C5A572] mx-auto mb-8 transition-all duration-1000 delay-300 ${
+            className={`w-24 h-px bg-[#C5A572] mx-auto mb-8 transition-all duration-1000 delay-300 animate-pulse-glow ${
               isLoaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
             }`}
           />
 
           {/* Tagline */}
           <p
-            className={`hero-tagline text-white/80 mb-12 transition-all duration-1000 delay-500 ${
+            className={`hero-tagline text-white/80 mb-12 transition-all duration-1000 delay-500 animate-slide-diagonal ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
@@ -53,7 +69,7 @@ const Hero = () => {
           {/* CTA Button */}
           <a
             href="#products"
-            className={`btn-primary transition-all duration-1000 delay-700 ${
+            className={`btn-primary rounded-full magnetic transition-all duration-1000 delay-700 hover:scale-105 hover:shadow-2xl animate-float ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >

@@ -62,7 +62,7 @@ const Craftsmanship = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="relative overflow-hidden group">
+            <div className="relative overflow-hidden group rounded-3xl">
               <img
                 src={craftsmanshipData.images[0].src}
                 alt={craftsmanshipData.images[0].alt}
@@ -82,7 +82,7 @@ const Craftsmanship = () => {
             {craftsmanshipData.images.slice(1).map((image, index) => (
               <div
                 key={image.id}
-                className={`relative overflow-hidden group transition-all duration-700 ${
+                className={`relative overflow-hidden group rounded-2xl transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${400 + index * 100}ms` }}

@@ -40,11 +40,30 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission (mock)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Send via WhatsApp Business API (free)
+      const message = `🔔 New inquiry!\n\n👤 ${formData.name}\n📧 ${formData.email}\n🏢 ${formData.company}\n💬 ${formData.message}`;
+      
+      await fetch('https://graph.facebook.com/v17.0/YOUR_PHONE_NUMBER_ID/messages', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          messaging_product: 'whatsapp',
+          to: '919876543210', // Your father's WhatsApp number
+          type: 'text',
+          text: { body: message }
+        })
+      });
 
-    toast.success('Thank you for your inquiry. We will be in touch soon.');
-    setFormData({ name: '', email: '', company: '', message: '' });
+      toast.success('Thank you! We will contact you soon.');
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } catch (error) {
+      toast.error('Something went wrong. Please try again.');
+    }
+
     setIsSubmitting(false);
   };
 
@@ -82,13 +101,13 @@ const Contact = () => {
             />
 
             {/* Contact Details */}
-            <div className="space-y-8">
+            <div className="space-y-8 backdrop-blur-md bg-white/5 p-8 rounded-2xl border border-white/10 shadow-lg animate-float">
               <div
-                className={`flex items-start gap-4 transition-all duration-700 delay-300 ${
+                className={`flex items-start gap-4 transition-all duration-700 delay-300 magnetic ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
-                <MapPin size={20} strokeWidth={1.5} className="text-[#C5A572] mt-1 flex-shrink-0" />
+                <MapPin size={20} strokeWidth={1.5} className="text-[#C5A572] mt-1 flex-shrink-0 animate-pulse-glow" />
                 <div>
                   <h4 className="text-sm tracking-wider uppercase text-[#8a8a8a] mb-2">Address</h4>
                   <p className="text-[#1a1a1a] whitespace-pre-line">{contactData.address}</p>
@@ -96,11 +115,11 @@ const Contact = () => {
               </div>
 
               <div
-                className={`flex items-start gap-4 transition-all duration-700 delay-400 ${
+                className={`flex items-start gap-4 transition-all duration-700 delay-400 magnetic ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
-                <Phone size={20} strokeWidth={1.5} className="text-[#C5A572] mt-1 flex-shrink-0" />
+                <Phone size={20} strokeWidth={1.5} className="text-[#C5A572] mt-1 flex-shrink-0 animate-pulse-glow" />
                 <div>
                   <h4 className="text-sm tracking-wider uppercase text-[#8a8a8a] mb-2">Phone</h4>
                   <a
@@ -113,11 +132,11 @@ const Contact = () => {
               </div>
 
               <div
-                className={`flex items-start gap-4 transition-all duration-700 delay-500 ${
+                className={`flex items-start gap-4 transition-all duration-700 delay-500 magnetic ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
-                <Mail size={20} strokeWidth={1.5} className="text-[#C5A572] mt-1 flex-shrink-0" />
+                <Mail size={20} strokeWidth={1.5} className="text-[#C5A572] mt-1 flex-shrink-0 animate-pulse-glow" />
                 <div>
                   <h4 className="text-sm tracking-wider uppercase text-[#8a8a8a] mb-2">Email</h4>
                   <a
@@ -137,7 +156,7 @@ const Contact = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 backdrop-blur-md bg-white/10 p-8 rounded-2xl border border-white/20 shadow-xl animate-morphing-border magnetic">
               {/* Name */}
               <div>
                 <label
@@ -229,6 +248,22 @@ const Contact = () => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-20">
+          <div className="backdrop-blur-md bg-white/5 p-4 rounded-2xl border border-white/10 shadow-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0234567890123!2d77.1234567!3d28.6234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMayapuri%20Phase%20II%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-xl"
+            ></iframe>
           </div>
         </div>
       </div>

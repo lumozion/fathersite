@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Linkedin, Facebook, Youtube } from 'lucide-react';
 import { footerData, navigationLinks } from '../data/mock';
 
 const Footer = () => {
@@ -37,23 +39,51 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Legal */}
+            {/* Legal & Social */}
             <div className="lg:col-span-4">
               <h4 className="text-sm tracking-widest uppercase text-white/50 mb-6">
                 Legal
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-8">
                 {footerData.links.map((link) => (
                   <li key={link.id}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="text-white/70 hover:text-[#C5A572] transition-colors duration-300 text-sm tracking-wider"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
+              
+              {/* Social Media */}
+              <h4 className="text-sm tracking-widest uppercase text-white/50 mb-4">
+                Follow Us
+              </h4>
+              <div className="flex gap-4">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/20 transition-all duration-300"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/20 transition-all duration-300"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={18} />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white/70 hover:text-[#C5A572] hover:bg-[#C5A572]/20 transition-all duration-300"
+                  aria-label="YouTube"
+                >
+                  <Youtube size={18} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -64,7 +94,7 @@ const Footer = () => {
             {footerData.copyright}
           </p>
           <p className="text-white/40 text-sm tracking-wider">
-            Engineered with precision
+            Developed by <a href="https://lumozion.store/" target="_blank" rel="noopener noreferrer" className="text-[#C5A572] hover:text-white transition-colors duration-300">Lumozion</a>
           </p>
         </div>
       </div>

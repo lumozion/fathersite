@@ -54,19 +54,19 @@ const Products = () => {
           {productsData.products.map((product, index) => (
             <div
               key={product.id}
-              className={`group cursor-pointer transition-all duration-700 ${
+              className={`group cursor-pointer transition-all duration-700 magnetic ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${200 + index * 100}ms` }}
               onMouseEnter={() => setActiveProduct(product.id)}
               onMouseLeave={() => setActiveProduct(null)}
+              onClick={() => window.location.href = `/products/${product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
             >
-              {/* Product Image */}
-              <div className="relative overflow-hidden mb-6">
+              <div className="relative overflow-hidden mb-6 rounded-3xl animate-morphing-border">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-[300px] lg:h-[360px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-[300px] lg:h-[360px] object-cover transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-[#1a1a1a]/0 group-hover:bg-[#1a1a1a]/30 transition-colors duration-500" />
                 
@@ -76,7 +76,7 @@ const Products = () => {
                     activeProduct === product.id ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
-                  <div className="bg-[#fffef8]/95 backdrop-blur-sm p-6 lg:p-8 max-w-xs">
+                  <div className="backdrop-blur-md bg-white/90 p-6 lg:p-8 max-w-xs rounded-2xl border border-white/30 shadow-xl">
                     <h4 className="text-sm tracking-widest uppercase text-[#C5A572] mb-4">
                       Specifications
                     </h4>

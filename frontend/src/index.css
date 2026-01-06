@@ -119,7 +119,87 @@ html {
   background: var(--text-primary);
 }
 
-/* Animations */
+/* Advanced Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(197, 165, 114, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(197, 165, 114, 0.6); }
+}
+
+@keyframes slide-in-diagonal {
+  from {
+    opacity: 0;
+    transform: translate(-50px, 50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes morphing-border {
+  0%, 100% { border-radius: 20px 50px 30px 40px; }
+  25% { border-radius: 50px 20px 40px 30px; }
+  50% { border-radius: 30px 40px 20px 50px; }
+  75% { border-radius: 40px 30px 50px 20px; }
+}
+
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-slide-diagonal {
+  animation: slide-in-diagonal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-morphing-border {
+  animation: morphing-border 8s ease-in-out infinite;
+}
+
+.animate-text-reveal {
+  animation: text-reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* Magnetic Effect */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic:hover {
+  transform: scale(1.05);
+}
+
+/* Parallax Container */
+.parallax-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-element {
+  transform: translateZ(0);
+  will-change: transform;
+}
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -190,7 +270,7 @@ html {
   background: transparent;
   color: var(--text-inverse);
   border: 1px solid var(--text-inverse);
-  border-radius: 0;
+  border-radius: 9999px;
   padding: 18px 40px;
   font-size: 13px;
   font-weight: 500;

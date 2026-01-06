@@ -11,8 +11,9 @@ export const navigationLinks = [
   { id: 1, label: "Craftsmanship", href: "#craftsmanship" },
   { id: 2, label: "Products", href: "#products" },
   { id: 3, label: "Engineering", href: "#engineering" },
-  { id: 4, label: "Industries", href: "#industries" },
-  { id: 5, label: "Contact", href: "#contact" }
+  { id: 4, label: "About", href: "#about" },
+  { id: 5, label: "Industries", href: "#industries" },
+  { id: 6, label: "Contact", href: "#contact" }
 ];
 
 export const craftsmanshipData = {
@@ -136,9 +137,9 @@ export const industriesData = {
 export const contactData = {
   title: "Get in Touch",
   subtitle: "Let us engineer your power solution",
-  address: "Industrial Area, Phase II\nNew Delhi, India 110001",
-  phone: "+91 98765 43210",
-  email: "info@srelectronics.com"
+  address: "GI/107, 1st Floor Back Portion, Mayapuri Phase-II\nNew Delhi, India 110064",
+  phone: "+91 9313618021",
+  email: "info@srelectronics.store"
 };
 
 export const footerData = {
@@ -146,7 +147,7 @@ export const footerData = {
   tagline: "Engineering Excellence in Power Control",
   copyright: "© 2025 S.R. Electronics. All rights reserved.",
   links: [
-    { id: 1, label: "Privacy Policy", href: "#" },
-    { id: 2, label: "Terms of Service", href: "#" }
+    { id: 1, label: "Privacy Policy", href: "/privacy-policy" },
+    { id: 2, label: "Terms of Service", href: "/terms-of-service" }
   ]
 };

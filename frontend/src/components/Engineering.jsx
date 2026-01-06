@@ -52,9 +52,10 @@ const Engineering = () => {
                 {engineeringData.subtitle}
               </p>
               <h2
-                className={`section-title text-white mb-8 transition-all duration-700 delay-100 ${
+                className={`section-title mb-8 transition-all duration-700 delay-100 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
+                style={{ color: '#C5A572' }}
               >
                 {engineeringData.title}
               </h2>
@@ -79,7 +80,7 @@ const Engineering = () => {
                   style={{ transitionDelay: `${300 + index * 100}ms` }}
                 >
                   {/* Number */}
-                  <span className="absolute -left-3 top-0 w-6 h-6 flex items-center justify-center bg-[#C5A572] text-[#0d0d0d] text-xs font-medium">
+                  <span className="absolute -left-3 top-0 w-6 h-6 flex items-center justify-center bg-[#C5A572] text-[#0d0d0d] text-xs font-medium rounded-full">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   

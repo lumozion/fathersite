@@ -71,7 +71,7 @@ const Industries = () => {
               >
                 {/* Icon Container */}
                 <div className="relative w-20 h-20 mx-auto mb-6">
-                  <div className="absolute inset-0 border border-[#e5e5e0] group-hover:border-[#C5A572] transition-colors duration-300" />
+                  <div className="absolute inset-0 backdrop-blur-sm bg-white/20 border border-white/30 rounded-2xl group-hover:bg-white/40 group-hover:border-[#C5A572]/50 transition-all duration-300 shadow-lg" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     {Icon && (
                       <Icon
