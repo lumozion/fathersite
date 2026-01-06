@@ -9,7 +9,7 @@ const LoadingScreen = () => {
           <img
             src="/srelec.jpeg"
             alt="S.R. Electronics"
-            className="w-32 h-32 object-contain animate-spin"
+            className="w-32 h-32 object-contain animate-pulse"
             style={{
               filter: 'drop-shadow(0 4px 8px rgba(197, 165, 114, 0.3))',
               mixBlendMode: 'multiply'
