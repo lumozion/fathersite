@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Craftsmanship from "./components/Craftsmanship";
@@ -75,41 +76,43 @@ function App() {
   }
 
   return (
-    <div>
-      <Toaster
-        position="bottom-right"
-        toastOptions={{
-          style: {
-            background: '#1a1a1a',
-            color: '#fffef8',
-            border: 'none',
-            borderRadius: '0',
-            fontFamily: 'Inter, sans-serif',
-          },
-        }}
-      />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/privacy-policy" element={
-            <PageWithLoading>
-              <Header /><PrivacyPolicy /><Footer /><WhatsAppChat />
-            </PageWithLoading>
-          } />
-          <Route path="/terms-of-service" element={
-            <PageWithLoading>
-              <Header /><TermsOfService /><Footer /><WhatsAppChat />
-            </PageWithLoading>
-          } />
-          <Route path="/products/control-transformers" element={<><Header /><ControlTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/power-transformers" element={<><Header /><PowerTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/distribution-transformers" element={<><Header /><DistributionTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/isolation-transformers" element={<><Header /><IsolationTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/auto-transformers" element={<><Header /><AutoTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider>
+      <div>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: '#1a1a1a',
+              color: '#fffef8',
+              border: 'none',
+              borderRadius: '0',
+              fontFamily: 'Inter, sans-serif',
+            },
+          }}
+        />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy-policy" element={
+              <PageWithLoading>
+                <Header /><PrivacyPolicy /><Footer /><WhatsAppChat />
+              </PageWithLoading>
+            } />
+            <Route path="/terms-of-service" element={
+              <PageWithLoading>
+                <Header /><TermsOfService /><Footer /><WhatsAppChat />
+              </PageWithLoading>
+            } />
+            <Route path="/products/control-transformers" element={<><Header /><ControlTransformers /><Footer /><WhatsAppChat /></>} />
+            <Route path="/products/power-transformers" element={<><Header /><PowerTransformers /><Footer /><WhatsAppChat /></>} />
+            <Route path="/products/distribution-transformers" element={<><Header /><DistributionTransformers /><Footer /><WhatsAppChat /></>} />
+            <Route path="/products/isolation-transformers" element={<><Header /><IsolationTransformers /><Footer /><WhatsAppChat /></>} />
+            <Route path="/products/auto-transformers" element={<><Header /><AutoTransformers /><Footer /><WhatsAppChat /></>} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 
