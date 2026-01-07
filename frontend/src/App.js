@@ -20,12 +20,13 @@ import DistributionTransformers from "./components/products/DistributionTransfor
 import IsolationTransformers from "./components/products/IsolationTransformers";
 import AutoTransformers from "./components/products/AutoTransformers";
 
-const PageWithLoading = ({ children }) => {
+  const PageWithLoading = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     setLoading(true);
+    window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);

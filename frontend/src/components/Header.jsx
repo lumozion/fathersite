@@ -23,13 +23,21 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-white/20 shadow-lg">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'backdrop-blur-md bg-white/80 border-b border-white/20 shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="container-premium">
         <nav className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <a
             href="#"
-            className="font-display text-xl lg:text-2xl tracking-widest transition-colors duration-300 text-[#1a1a1a]"
+            className={`font-display text-xl lg:text-2xl tracking-widest transition-colors duration-300 ${
+              isScrolled ? 'text-[#1a1a1a]' : 'text-white'
+            }`}
           >
             S.R. ELECTRONICS
           </a>
@@ -46,11 +54,19 @@ const Header = () => {
                   >
                     <a
                       href={link.href}
-                      className="text-sm font-medium tracking-wider uppercase transition-all duration-300 relative group flex items-center gap-1 text-[#1a1a1a] hover:text-[#C5A572]"
+                      className={`text-sm font-medium tracking-wider uppercase transition-all duration-300 relative group flex items-center gap-1 ${
+                        isScrolled
+                          ? 'text-[#1a1a1a] hover:text-[#C5A572]'
+                          : 'text-white/90 hover:text-white'
+                      }`}
                     >
                       {link.label}
                       <ChevronDown size={14} className={`transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
-                      <span className="absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-[#C5A572]" />
+                      <span
+                        className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${
+                          isScrolled ? 'bg-[#C5A572]' : 'bg-white'
+                        }`}
+                      />
                     </a>
                     
                     {/* Dropdown */}
@@ -73,10 +89,18 @@ const Header = () => {
                 ) : (
                   <a
                     href={link.href}
-                    className="text-sm font-medium tracking-wider uppercase transition-all duration-300 relative group text-[#1a1a1a] hover:text-[#C5A572]"
+                    className={`text-sm font-medium tracking-wider uppercase transition-all duration-300 relative group ${
+                      isScrolled
+                        ? 'text-[#1a1a1a] hover:text-[#C5A572]'
+                        : 'text-white/90 hover:text-white'
+                    }`}
                   >
                     {link.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-[#C5A572]" />
+                    <span
+                      className={`absolute -bottom-1 left-0 w-0 h-px transition-all duration-300 group-hover:w-full ${
+                        isScrolled ? 'bg-[#C5A572]' : 'bg-white'
+                      }`}
+                    />
                   </a>
                 )}
               </li>
@@ -86,7 +110,9 @@ const Header = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 transition-colors duration-300 text-[#1a1a1a]"
+            className={`lg:hidden p-2 transition-colors duration-300 ${
+              isScrolled ? 'text-[#1a1a1a]' : 'text-white'
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -105,7 +131,11 @@ const Header = () => {
                 <a
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-sm font-medium tracking-wider uppercase py-2 transition-colors duration-300 text-[#1a1a1a] hover:text-[#C5A572]"
+                  className={`block text-sm font-medium tracking-wider uppercase py-2 transition-colors duration-300 ${
+                    isScrolled
+                      ? 'text-[#1a1a1a] hover:text-[#C5A572]'
+                      : 'text-white/90 hover:text-white'
+                  }`}
                 >
                   {link.label}
                 </a>

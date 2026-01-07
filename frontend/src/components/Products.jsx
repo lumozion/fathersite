@@ -30,6 +30,7 @@ const Products = () => {
       route = '/products/auto-transformers';
     }
     navigate(route);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

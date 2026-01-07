@@ -69,7 +69,7 @@ const Contact = () => {
         // Fallback to mailto
         const subject = `New Inquiry from ${formData.name}`;
         const body = `Full Name: ${formData.name}\n\nEmail: ${formData.email}\n\nCompany: ${formData.company || 'Not specified'}\n\nMessage:\n${formData.message}`;
-        window.open(`mailto:info@srelectronics.store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        window.open(`mailto:rajesh@srelectronics.store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
         toast.success('Email client opened. Please send the email.');
         setFormData({ name: '', email: '', company: '', message: '' });
       }
@@ -77,7 +77,7 @@ const Contact = () => {
       // Fallback to mailto
       const subject = `New Inquiry from ${formData.name}`;
       const body = `Full Name: ${formData.name}\n\nEmail: ${formData.email}\n\nCompany: ${formData.company || 'Not specified'}\n\nMessage:\n${formData.message}`;
-      window.open(`mailto:info@srelectronics.store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+      window.open(`mailto:rajesh@srelectronics.store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
       toast.success('Email client opened. Please send the email.');
       setFormData({ name: '', email: '', company: '', message: '' });
     }
