@@ -1,9 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Linkedin, Facebook, Youtube } from 'lucide-react';
 import { footerData, navigationLinks } from '../data/mock';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavClick = (href) => {
+    if (href.startsWith('#')) {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
   return (
     <footer className="bg-[#0d0d0d] text-white">
       <div className="container-premium">
@@ -30,7 +43,13 @@ const Footer = () => {
                   <li key={link.id}>
                     <a
                       href={link.href}
-                      className="text-white/70 hover:text-[#C5A572] transition-colors duration-300 text-sm tracking-wider"
+                      onClick={(e) => {
+                        if (link.href.startsWith('#')) {
+                          e.preventDefault();
+                          handleNavClick(link.href);
+                        }
+                      }}
+                      className="text-white/70 hover:text-[#C5A572] transition-colors duration-300 text-sm tracking-wider cursor-pointer"
                     >
                       {link.label}
                     </a>
