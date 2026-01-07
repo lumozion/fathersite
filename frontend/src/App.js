@@ -7,8 +7,8 @@ import Craftsmanship from "./components/Craftsmanship";
 import Products from "./components/Products";
 import Engineering from "./components/Engineering";
 import About from "./components/About";
+import GoogleReviews from "./components/GoogleReviews";
 import Industries from "./components/Industries";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfService from "./components/TermsOfService";
@@ -51,6 +51,7 @@ const Home = () => {
         <Products />
         <Engineering />
         <About />
+        <GoogleReviews />
         <Industries />
         <Contact />
       </main>
