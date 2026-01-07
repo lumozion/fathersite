@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
@@ -19,6 +19,25 @@ import PowerTransformers from "./components/products/PowerTransformers";
 import DistributionTransformers from "./components/products/DistributionTransformers";
 import IsolationTransformers from "./components/products/IsolationTransformers";
 import AutoTransformers from "./components/products/AutoTransformers";
+
+const PageWithLoading = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
+  return children;
+};
 
 const Home = () => {
   return (
@@ -70,8 +89,16 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/privacy-policy" element={<><Header /><PrivacyPolicy /><Footer /><WhatsAppChat /></>} />
-          <Route path="/terms-of-service" element={<><Header /><TermsOfService /><Footer /><WhatsAppChat /></>} />
+          <Route path="/privacy-policy" element={
+            <PageWithLoading>
+              <Header /><PrivacyPolicy /><Footer /><WhatsAppChat />
+            </PageWithLoading>
+          } />
+          <Route path="/terms-of-service" element={
+            <PageWithLoading>
+              <Header /><TermsOfService /><Footer /><WhatsAppChat />
+            </PageWithLoading>
+          } />
           <Route path="/products/control-transformers" element={<><Header /><ControlTransformers /><Footer /><WhatsAppChat /></>} />
           <Route path="/products/power-transformers" element={<><Header /><PowerTransformers /><Footer /><WhatsAppChat /></>} />
           <Route path="/products/distribution-transformers" element={<><Header /><DistributionTransformers /><Footer /><WhatsAppChat /></>} />
