@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { navigationLinks } from '../data/mock';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (href) => {
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   const productTypes = [
     { name: 'Control Transformers', path: '/products/control-transformers' },
@@ -89,6 +101,10 @@ const Header = () => {
                 ) : (
                   <a
                     href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }}
                     className={`text-sm font-medium tracking-wider uppercase transition-all duration-300 relative group ${
                       isScrolled
                         ? 'text-[#1a1a1a] hover:text-[#C5A572]'
@@ -130,7 +146,11 @@ const Header = () => {
               <li key={link.id}>
                 <a
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                    setIsMobileMenuOpen(false);
+                  }}
                   className={`block text-sm font-medium tracking-wider uppercase py-2 transition-colors duration-300 ${
                     isScrolled
                       ? 'text-[#1a1a1a] hover:text-[#C5A572]'
