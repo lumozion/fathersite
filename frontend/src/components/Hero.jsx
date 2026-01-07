@@ -35,7 +35,7 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#0d0d0d]/60" />
+        <div className="absolute inset-0 bg-[#0d0d0d]/75" />
       </div>
 
       {/* Content */}
