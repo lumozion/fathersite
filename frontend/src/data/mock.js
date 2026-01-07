@@ -4,7 +4,7 @@ export const heroData = {
   title: "S.R. ELECTRONICS",
   tagline: "Engineering Excellence in Power Control",
   ctaText: "Explore Our Range",
-  backgroundImage: "https://images.unsplash.com/photo-1603577892375-f05581d44e29"
+  backgroundImage: "/front.jpeg"
 };
 
 export const navigationLinks = [
