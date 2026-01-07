@@ -28,7 +28,6 @@ const TermsOfService = () => {
                 <li>Control Transformers</li>
                 <li>Isolation Transformers</li>
                 <li>Auto Transformers</li>
-                <li>Three Phase Transformers</li>
               </ul>
             </section>
 
