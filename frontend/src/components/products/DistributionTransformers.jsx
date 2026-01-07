@@ -89,6 +89,7 @@ const DistributionTransformers = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -91,6 +91,7 @@ const IsolationTransformers = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

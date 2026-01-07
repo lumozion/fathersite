@@ -88,6 +88,7 @@ const PowerTransformers = () => {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 };
