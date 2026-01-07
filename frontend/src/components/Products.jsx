@@ -21,7 +21,14 @@ const Products = () => {
   };
 
   const handleProductClick = (productName) => {
-    const route = `/products/${productName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+    let route;
+    if (productName === 'Control Transformer Series CT') {
+      route = '/products/control-transformers';
+    } else if (productName === 'Isolation Transformer Series IT') {
+      route = '/products/isolation-transformers';
+    } else if (productName === 'Auto Transformer Series AT') {
+      route = '/products/auto-transformers';
+    }
     navigate(route);
   };
 
