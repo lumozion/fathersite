@@ -18,7 +18,7 @@ const ControlTransformers = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-3xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1567093322102-6bdd32fba67d"
+                src="/control.jpeg"
                 alt="Control Transformers"
                 className="w-full h-[400px] object-cover"
               />

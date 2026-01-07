@@ -18,7 +18,7 @@ const IsolationTransformers = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-3xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e"
+                src="/isolation.jpeg"
                 alt="Isolation Transformers"
                 className="w-full h-[400px] object-cover"
               />
