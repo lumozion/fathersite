@@ -28,6 +28,35 @@ const AutoTransformers = () => {
     }
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.srelectronics.store" },
+    { name: "Products", url: "https://www.srelectronics.store#products" },
+    { name: "Auto Transformers", url: "https://www.srelectronics.store/products/auto-transformers" }
+  ];
+
+  const faqSchema = [
+    {
+      question: "What are auto transformers used for?",
+      answer: "Auto transformers are used for voltage regulation and soft-starting motors, providing smooth power supply adjustment for various industrial applications."
+    },
+    {
+      question: "What voltage range can auto transformers adjust?",
+      answer: "Our auto transformers operate at 415V with adjustable taps providing ±10% voltage adjustment capability for precise voltage regulation."
+    },
+    {
+      question: "What is the power rating range?",
+      answer: "Our auto transformers are available in power ratings from 5kVA to 500kVA to suit different application requirements."
+    },
+    {
+      question: "Are auto transformers more efficient than regular transformers?",
+      answer: "Yes, auto transformers are more compact and efficient because they have a smaller copper mass and lower losses compared to conventional transformers."
+    },
+    {
+      question: "Can auto transformers be used for motor starting?",
+      answer: "Yes, auto transformers with tap adjustments are ideal for soft-starting motors by gradually increasing voltage, reducing inrush current and mechanical stress."
+    }
+  ];
+
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % images.length);
   };
@@ -40,10 +69,13 @@ const AutoTransformers = () => {
     <>
       <SEOMeta 
         title="Auto Transformers AT - S.R. Electronics | Voltage Regulation Transformer Manufacturer Delhi"
-        description="Compact auto transformers for voltage regulation and motor starting. 415V variable, 5kVA-500kVA. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
-        keywords="auto transformers, voltage regulation transformers, motor starting, Delhi, S.R. Electronics, SR Electronics"
+        description="Compact auto transformers for voltage regulation and motor starting. 415V variable, 5kVA-500kVA, ±10% taps. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
+        keywords="auto transformers, voltage regulation transformers, motor starting, soft starter, Delhi, S.R. Electronics, SR Electronics"
         canonical="https://www.srelectronics.store/products/auto-transformers"
+        ogImage="/ogimage.jpeg"
         schemaMarkup={autoSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faqSchema}
       />
       <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">

@@ -25,6 +25,38 @@ const DistributionTransformers = () => {
     }
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.srelectronics.store" },
+    { name: "Products", url: "https://www.srelectronics.store#products" },
+    { name: "Distribution Transformers", url: "https://www.srelectronics.store/products/distribution-transformers" }
+  ];, oil-cooled. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
+        keywords="distribution transformers, power distribution, oil cooled transformers, Delhi, S.R. Electronics, SR Electronics, distribution transformer supplier"
+        canonical="https://www.srelectronics.store/products/distribution-transformers"
+        ogImage="/ogimage.jpeg"
+        schemaMarkup={distSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faq
+      question: "What are distribution transformers used for?",
+      answer: "Distribution transformers step down voltage from transmission lines to distribution levels suitable for end consumers in power distribution networks."
+    },
+    {
+      question: "What is the standard voltage for distribution transformers?",
+      answer: "Our distribution transformers operate at 11kV/415V with power ratings from 25kVA to 1000kVA."
+    },
+    {
+      question: "Are your transformers oil-cooled?",
+      answer: "Yes, all our distribution transformers use oil cooling technology for efficient heat dissipation and long operational life."
+    },
+    {
+      question: "What maintenance is required?",
+      answer: "Minimal maintenance is required. Regular inspection and oil testing are recommended annually. Contact us for maintenance guidelines."
+    },
+    {
+      question: "How long do distribution transformers typically last?",
+      answer: "With proper maintenance, our distribution transformers can operate reliably for 25-40 years."
+    }
+  ];
+
   return (
     <>
       <SEOMeta 

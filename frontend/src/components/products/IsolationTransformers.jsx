@@ -25,6 +25,38 @@ const IsolationTransformers = () => {
     }
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.srelectronics.store" },
+    { name: "Products", url: "https://www.srelectronics.store#products" },
+    { name: "Isolation Transformers", url: "https://www.srelectronics.store/products/isolation-transformers" }
+  ];
+isolation, Delhi, S.R. Electronics, SR Electronics, isolation transformer manufacturer"
+        canonical="https://www.srelectronics.store/products/isolation-transformers"
+        ogImage="/ogimage.jpeg"
+        schemaMarkup={isolationSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faq
+      question: "What is the purpose of isolation transformers?",
+      answer: "Isolation transformers provide electrical isolation between input and output circuits, protecting equipment from ground faults and reducing electrical noise."
+    },
+    {
+      question: "What is the isolation rating of your transformers?",
+      answer: "Our isolation transformers provide 4kV isolation test rating, ensuring safe electrical isolation for sensitive equipment."
+    },
+    {
+      question: "What voltage and power ratings are available?",
+      answer: "Our isolation transformers are available in 230V/230V configuration with power ratings from 1kVA to 100kVA."
+    },
+    {
+      question: "Where are isolation transformers commonly used?",
+      answer: "Isolation transformers are widely used in hospitals, laboratories, data centers, and other facilities requiring high electrical safety standards."
+    },
+    {
+      question: "Are the transformers certified for safety?",
+      answer: "Yes, all our isolation transformers meet international safety standards and are ISO certified."
+    }
+  ];
+
   return (
     <>
       <SEOMeta 

@@ -7,7 +7,9 @@ const SEOMeta = ({
   canonical = "https://www.srelectronics.store",
   ogImage = "/ogimage.jpeg",
   ogType = "website",
-  schemaMarkup = null
+  schemaMarkup = null,
+  breadcrumbs = null,
+  faqSchema = null
 }) => {
   useEffect(() => {
     // Update title
@@ -20,6 +22,7 @@ const SEOMeta = ({
     updateMetaTag('meta', 'property', 'og:description', description);
     updateMetaTag('meta', 'property', 'og:image', ogImage);
     updateMetaTag('meta', 'property', 'og:type', ogType);
+    updateMetaTag('meta', 'property', 'og:url', canonical);
     updateMetaTag('meta', 'property', 'twitter:title', title);
     updateMetaTag('meta', 'property', 'twitter:description', description);
     updateMetaTag('meta', 'property', 'twitter:image', ogImage);
@@ -35,15 +38,41 @@ const SEOMeta = ({
     
     // Update schema markup
     if (schemaMarkup) {
-      let schemaScript = document.querySelector('script[type="application/ld+json"]:last-of-type');
-      if (!schemaScript) {
-        schemaScript = document.createElement('script');
-        schemaScript.type = 'application/ld+json';
-        document.head.appendChild(schemaScript);
-      }
-      schemaScript.textContent = JSON.stringify(schemaMarkup);
+      updateSchemaMarkup(schemaMarkup);
     }
-  }, [title, description, keywords, canonical, ogImage, ogType, schemaMarkup]);
+    
+    // Update breadcrumb schema
+    if (breadcrumbs) {
+      const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": crumb.name,
+          "item": crumb.url
+        }))
+      };
+      updateSchemaMarkup(breadcrumbSchema, 'breadcrumb');
+    }
+    
+    // Update FAQ schema
+    if (faqSchema) {
+      const faq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqSchema.map(item => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer
+          }
+        }))
+      };
+      updateSchemaMarkup(faq, 'faq');
+    }
+  }, [title, description, keywords, canonical, ogImage, ogType, schemaMarkup, breadcrumbs, faqSchema]);
 
   return null;
 };
@@ -61,6 +90,25 @@ function updateMetaTag(tagType, attrName, attrValue, content) {
   if (tagType === 'meta') {
     tag.setAttribute('content', content);
   }
+}
+
+function updateSchemaMarkup(schemaMarkup, type = 'main') {
+  if (!schemaMarkup) return;
+  
+  const selector = type === 'main' 
+    ? 'script[type="application/ld+json"]:not([data-type])'
+    : `script[type="application/ld+json"][data-type="${type}"]`;
+  
+  let schemaScript = document.querySelector(selector);
+  if (!schemaScript) {
+    schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    if (type !== 'main') {
+      schemaScript.setAttribute('data-type', type);
+    }
+    document.head.appendChild(schemaScript);
+  }
+  schemaScript.textContent = JSON.stringify(schemaMarkup);
 }
 
 export default SEOMeta;

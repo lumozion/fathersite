@@ -25,14 +25,46 @@ const ControlTransformers = () => {
     }
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.srelectronics.store" },
+    { name: "Products", url: "https://www.srelectronics.store#products" },
+    { name: "Control Transformers", url: "https://www.srelectronics.store/products/control-transformers" }
+  ];
+
+  const faqSchema = [
+    {
+      question: "What are control transformers used for?",
+      answer: "Control transformers are used for industrial automation, providing reliable power supply to control circuits in manufacturing equipment and industrial systems."
+    },
+    {
+      question: "What voltage range do your control transformers support?",
+      answer: "Our control transformers support voltage ranges from 230V to 440V with power ratings from 50VA to 5000VA."
+    },
+    {
+      question: "Are the transformers ISO certified?",
+      answer: "Yes, S.R. Electronics is ISO certified and all our transformers meet international quality standards."
+    },
+    {
+      question: "What is the warranty on control transformers?",
+      answer: "All our control transformers come with comprehensive warranty coverage. Contact us for specific warranty terms."
+    },
+    {
+      question: "Can I get custom specifications?",
+      answer: "Yes, we provide custom transformer specifications to meet your specific requirements. Call +91-9313618021 for custom orders."
+    }
+  ];
+
   return (
     <>
       <SEOMeta 
         title="Control Transformers CT - S.R. Electronics | Premium Transformer Manufacturer Delhi"
         description="Premium control transformers for industrial automation. 230V-440V, 50VA-5000VA. S.R. Electronics - ISO certified transformer manufacturer in Delhi with 20+ years experience."
-        keywords="control transformers, automation transformers, industrial transformers, Delhi, S.R. Electronics, SR Electronics"
+        keywords="control transformers, automation transformers, industrial transformers, Delhi, S.R. Electronics, SR Electronics, control transformer manufacturer"
         canonical="https://www.srelectronics.store/products/control-transformers"
+        ogImage="/ogimage.jpeg"
         schemaMarkup={controlSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faqSchema}
       />
       <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">

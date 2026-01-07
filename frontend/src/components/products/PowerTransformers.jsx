@@ -25,6 +25,38 @@ const PowerTransformers = () => {
     }
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "https://www.srelectronics.store" },
+    { name: "Products", url: "https://www.srelectronics.store#products" },
+    { name: "Power Transformers", url: "https://www.srelectronics.store/products/power-transformers" }
+  ];
+, power transformer supplier"
+        canonical="https://www.srelectronics.store/products/power-transformers"
+        ogImage="/ogimage.jpeg"
+        schemaMarkup={powerSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faq
+      question: "What are the specifications of your power transformers?",
+      answer: "Our power transformers support 11kV-33kV voltage range with power ratings from 100kVA to 2500kVA, operating at 50/60 Hz."
+    },
+    {
+      question: "Are power transformers suitable for industrial applications?",
+      answer: "Yes, our high-efficiency three-phase power transformers are designed specifically for industrial and commercial applications."
+    },
+    {
+      question: "What is the efficiency rating of your transformers?",
+      answer: "Our transformers are designed for high efficiency with minimal losses. Contact us for specific efficiency ratings for your application."
+    },
+    {
+      question: "Do you offer on-site installation?",
+      answer: "Yes, we provide installation support. Call +91-9313618021 for details on installation services."
+    },
+    {
+      question: "What is your delivery timeline?",
+      answer: "Delivery timelines vary based on specifications and order volume. Contact us for custom delivery schedules."
+    }
+  ];
+
   return (
     <>
       <SEOMeta 
