@@ -1,10 +1,40 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOMeta from '../SEOMeta';
 
 const PowerTransformers = () => {
+  const powerSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Power Transformer Series PT",
+    "description": "High-efficiency three-phase power transformers for industrial and commercial applications. Manufactured by S.R. Electronics.",
+    "brand": {
+      "@type": "Brand",
+      "name": "S.R. Electronics"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "S.R. Electronics",
+      "url": "https://www.srelectronics.store"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "INR"
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
+    <>
+      <SEOMeta 
+        title="Power Transformers PT - S.R. Electronics | Industrial Transformer Manufacturer Delhi"
+        description="High-efficiency three-phase power transformers for industrial applications. 11kV-33kV, 100kVA-2500kVA. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
+        keywords="power transformers, industrial transformers, three-phase transformers, Delhi, S.R. Electronics, SR Electronics"
+        canonical="https://www.srelectronics.store/products/power-transformers"
+        schemaMarkup={powerSchema}
+      />
+      <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">
         <Link 
           to="/" 
@@ -58,7 +88,7 @@ const PowerTransformers = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,10 +1,32 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOMeta from '../SEOMeta';
 
 const AutoTransformers = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const images = ['/auto.jpeg', '/auto2.jpeg'];
+
+  const autoSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Auto Transformer Series AT",
+    "description": "Compact auto transformers for voltage regulation and motor starting applications. Manufactured by S.R. Electronics.",
+    "brand": {
+      "@type": "Brand",
+      "name": "S.R. Electronics"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "S.R. Electronics",
+      "url": "https://www.srelectronics.store"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "INR"
+    }
+  };
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % images.length);
@@ -15,7 +37,15 @@ const AutoTransformers = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
+    <>
+      <SEOMeta 
+        title="Auto Transformers AT - S.R. Electronics | Voltage Regulation Transformer Manufacturer Delhi"
+        description="Compact auto transformers for voltage regulation and motor starting. 415V variable, 5kVA-500kVA. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
+        keywords="auto transformers, voltage regulation transformers, motor starting, Delhi, S.R. Electronics, SR Electronics"
+        canonical="https://www.srelectronics.store/products/auto-transformers"
+        schemaMarkup={autoSchema}
+      />
+      <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">
         <Link 
           to="/" 
@@ -91,7 +121,7 @@ const AutoTransformers = () => {
               
               <a
                 href="tel:+919313618021"
-                className="btn-primary rounded-full inline-flex items-center gap-3"
+             className="btn-primary rounded-full inline-flex items-center gap-3"
               >
                 Get Quote
               </a>

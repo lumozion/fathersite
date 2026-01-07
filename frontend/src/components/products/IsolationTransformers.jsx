@@ -1,10 +1,40 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOMeta from '../SEOMeta';
 
 const IsolationTransformers = () => {
+  const isolationSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Isolation Transformer Series IT",
+    "description": "Safety isolation transformers providing electrical isolation and protection. Manufactured by S.R. Electronics.",
+    "brand": {
+      "@type": "Brand",
+      "name": "S.R. Electronics"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "S.R. Electronics",
+      "url": "https://www.srelectronics.store"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "INR"
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
+    <>
+      <SEOMeta 
+        title="Isolation Transformers IT - S.R. Electronics | Safety Transformer Manufacturer Delhi"
+        description="Safety isolation transformers for electrical protection. 230V/230V, 1kVA-100kVA, 4kV isolation. S.R. Electronics - ISO certified manufacturer in Delhi."
+        keywords="isolation transformers, safety transformers, electrical transformers, Delhi, S.R. Electronics, SR Electronics"
+        canonical="https://www.srelectronics.store/products/isolation-transformers"
+        schemaMarkup={isolationSchema}
+      />
+      <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">
         <Link 
           to="/" 
@@ -30,7 +60,7 @@ const IsolationTransformers = () => {
               <h1 className="section-title mb-6">Isolation Transformer Series IT</h1>
               <p className="text-[#4a4a4a] text-lg mb-8">
                 Safety isolation transformers providing electrical isolation and protection.
-              </p>
+           </p>
               
               <div className="backdrop-blur-md bg-white/10 p-6 rounded-2xl border border-white/20 mb-8">
                 <h3 className="font-display text-xl text-[#1a1a1a] mb-4">Specifications</h3>
