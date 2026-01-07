@@ -50,7 +50,7 @@ export const productsData = {
       id: 1,
       name: "Control Transformer Series CT",
       description: "Premium single-phase control transformers for industrial automation",
-      image: "https://images.unsplash.com/photo-1567093322102-6bdd32fba67d",
+      image: "/control.jpeg",
       specs: {
         voltage: "230V - 440V",
         power: "50VA - 5000VA",
@@ -61,7 +61,7 @@ export const productsData = {
       id: 2,
       name: "Isolation Transformer Series IT",
       description: "High-isolation transformers for sensitive electronic equipment",
-      image: "https://images.unsplash.com/photo-1766306285696-5469242d8085",
+      image: "/isolation.jpeg",
       specs: {
         voltage: "110V - 440V",
         power: "100VA - 10000VA",
@@ -72,21 +72,10 @@ export const productsData = {
       id: 3,
       name: "Auto Transformer Series AT",
       description: "Efficient step-up/step-down autotransformers for voltage conversion",
-      image: "https://images.unsplash.com/photo-1585366958403-bacb4c36a1a9",
+      image: "/auto.jpeg",
       specs: {
         voltage: "110V - 440V",
         power: "500VA - 25000VA",
-        frequency: "50/60 Hz"
-      }
-    },
-    {
-      id: 4,
-      name: "Three Phase Transformer Series 3P",
-      description: "Robust three-phase transformers for heavy industrial applications",
-      image: "https://images.unsplash.com/photo-1647427060118-4911c9821b82",
-      specs: {
-        voltage: "230V - 690V",
-        power: "1KVA - 100KVA",
         frequency: "50/60 Hz"
       }
     }
