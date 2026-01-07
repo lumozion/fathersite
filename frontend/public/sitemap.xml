@@ -7,7 +7,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>/ogimage.jpeg</image:loc>
+      <image:loc>https://www.srelectronics.store/ogimage.jpeg</image:loc>
       <image:title>S.R. Electronics - Transformer Manufacturer</image:title>
     </image:image>
   </url>
@@ -17,7 +17,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>/control.jpeg</image:loc>
+      <image:loc>https://www.srelectronics.store/control.jpeg</image:loc>
       <image:title>Control Transformers Series CT</image:title>
     </image:image>
   </url>
@@ -47,7 +47,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>/isolation.jpeg</image:loc>
+      <image:loc>https://www.srelectronics.store/isolation.jpeg</image:loc>
       <image:title>Isolation Transformers Series IT</image:title>
     </image:image>
   </url>
@@ -57,7 +57,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>/auto.jpeg</image:loc>
+      <image:loc>https://www.srelectronics.store/auto.jpeg</image:loc>
       <image:title>Auto Transformers Series AT</image:title>
     </image:image>
   </url>
