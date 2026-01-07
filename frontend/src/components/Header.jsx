@@ -10,8 +10,6 @@ const Header = () => {
 
   const productTypes = [
     { name: 'Control Transformers', path: '/products/control-transformers' },
-    { name: 'Power Transformers', path: '/products/power-transformers' },
-    { name: 'Distribution Transformers', path: '/products/distribution-transformers' },
     { name: 'Isolation Transformers', path: '/products/isolation-transformers' },
     { name: 'Auto Transformers', path: '/products/auto-transformers' }
   ];
