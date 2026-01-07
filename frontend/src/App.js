@@ -19,6 +19,7 @@ import PowerTransformers from "./components/products/PowerTransformers";
 import DistributionTransformers from "./components/products/DistributionTransformers";
 import IsolationTransformers from "./components/products/IsolationTransformers";
 import AutoTransformers from "./components/products/AutoTransformers";
+import NotFound from "./components/NotFound";
 
   const PageWithLoading = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -105,6 +106,7 @@ function App() {
           <Route path="/products/distribution-transformers" element={<><Header /><DistributionTransformers /><Footer /><WhatsAppChat /></>} />
           <Route path="/products/isolation-transformers" element={<><Header /><IsolationTransformers /><Footer /><WhatsAppChat /></>} />
           <Route path="/products/auto-transformers" element={<><Header /><AutoTransformers /><Footer /><WhatsAppChat /></>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
