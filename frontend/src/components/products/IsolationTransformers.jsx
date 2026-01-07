@@ -21,6 +21,8 @@ const IsolationTransformers = () => {
                 src="/isolation.jpeg"
                 alt="Isolation Transformers"
                 className="w-full h-[400px] object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             

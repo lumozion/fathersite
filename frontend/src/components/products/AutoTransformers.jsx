@@ -33,6 +33,8 @@ const AutoTransformers = () => {
                 src={images[currentImage]}
                 alt="Auto Transformers"
                 className="w-full h-[400px] object-cover transition-opacity duration-500"
+                loading="lazy"
+                decoding="async"
               />
               
               {/* Navigation Buttons */}

@@ -21,6 +21,8 @@ const ControlTransformers = () => {
                 src="/control.jpeg"
                 alt="Control Transformers"
                 className="w-full h-[400px] object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             

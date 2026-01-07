@@ -67,6 +67,8 @@ const Products = () => {
                   src={product.image}
                   alt={product.name}
                   className="w-full h-[300px] lg:h-[360px] object-cover transition-all duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-[#1a1a1a]/0 group-hover:bg-[#1a1a1a]/30 transition-colors duration-500" />
                 
