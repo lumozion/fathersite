@@ -57,7 +57,7 @@ const Products = () => {
     >
       <div className="container-premium">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16 lg:mb-20 px-4">
           <p
             className={`section-subtitle mb-4 transition-all duration-700 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -75,7 +75,7 @@ const Products = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 px-4 md:px-0">
           {productsData.products.map((product, index) => (
             <div
               key={product.id}
@@ -104,7 +104,7 @@ const Products = () => {
                         e.stopPropagation();
                         prevAutoImage();
                       }}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100"
+                      className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100"
                     >
                       <ChevronLeft size={16} />
                     </button>
@@ -113,12 +113,12 @@ const Products = () => {
                         e.stopPropagation();
                         nextAutoImage();
                       }}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100"
+                      className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors opacity-100 md:opacity-0 md:group-hover:opacity-100"
                     >
                       <ChevronRight size={16} />
                     </button>
                     
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 flex gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                       {autoImages.map((_, index) => (
                         <button
                           key={index}
@@ -152,7 +152,7 @@ const Products = () => {
                     activeProduct === product.id ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
-                  <div className="backdrop-blur-md bg-white/90 p-6 lg:p-8 max-w-xs rounded-2xl border border-white/30 shadow-xl">
+                  <div className="backdrop-blur-md bg-white/90 p-4 md:p-6 lg:p-8 max-w-xs mx-4 rounded-2xl border border-white/30 shadow-xl">
                     <h4 className="text-sm tracking-widest uppercase text-[#C5A572] mb-4">
                       Specifications
                     </h4>
