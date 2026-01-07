@@ -30,12 +30,9 @@ const PowerTransformers = () => {
     { name: "Products", url: "https://www.srelectronics.store#products" },
     { name: "Power Transformers", url: "https://www.srelectronics.store/products/power-transformers" }
   ];
-, power transformer supplier"
-        canonical="https://www.srelectronics.store/products/power-transformers"
-        ogImage="/ogimage.jpeg"
-        schemaMarkup={powerSchema}
-        breadcrumbs={breadcrumbs}
-        faqSchema={faq
+
+  const faq = [
+    {
       question: "What are the specifications of your power transformers?",
       answer: "Our power transformers support 11kV-33kV voltage range with power ratings from 100kVA to 2500kVA, operating at 50/60 Hz."
     },
@@ -61,10 +58,13 @@ const PowerTransformers = () => {
     <>
       <SEOMeta 
         title="Power Transformers PT - S.R. Electronics | Industrial Transformer Manufacturer Delhi"
-        description="High-efficiency three-phase power transformers for industrial applications. 11kV-33kV, 100kVA-2500kVA. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
-        keywords="power transformers, industrial transformers, three-phase transformers, Delhi, S.R. Electronics, SR Electronics"
+        description="High-efficiency three-phase power transformers for industrial applications. 11kV-33kV, 100kVA-2500kVA, power transformer supplier"
+        keywords="power transformers, industrial transformers, three-phase transformers, Delhi, S.R. Electronics, SR Electronics, power transformer supplier"
         canonical="https://www.srelectronics.store/products/power-transformers"
+        ogImage="/ogimage.jpeg"
         schemaMarkup={powerSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faq}
       />
       <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">

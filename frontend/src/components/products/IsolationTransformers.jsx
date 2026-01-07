@@ -30,12 +30,9 @@ const IsolationTransformers = () => {
     { name: "Products", url: "https://www.srelectronics.store#products" },
     { name: "Isolation Transformers", url: "https://www.srelectronics.store/products/isolation-transformers" }
   ];
-isolation, Delhi, S.R. Electronics, SR Electronics, isolation transformer manufacturer"
-        canonical="https://www.srelectronics.store/products/isolation-transformers"
-        ogImage="/ogimage.jpeg"
-        schemaMarkup={isolationSchema}
-        breadcrumbs={breadcrumbs}
-        faqSchema={faq
+
+  const faq = [
+    {
       question: "What is the purpose of isolation transformers?",
       answer: "Isolation transformers provide electrical isolation between input and output circuits, protecting equipment from ground faults and reducing electrical noise."
     },
@@ -61,10 +58,13 @@ isolation, Delhi, S.R. Electronics, SR Electronics, isolation transformer manufa
     <>
       <SEOMeta 
         title="Isolation Transformers IT - S.R. Electronics | Safety Transformer Manufacturer Delhi"
-        description="Safety isolation transformers for electrical protection. 230V/230V, 1kVA-100kVA, 4kV isolation. S.R. Electronics - ISO certified manufacturer in Delhi."
-        keywords="isolation transformers, safety transformers, electrical transformers, Delhi, S.R. Electronics, SR Electronics"
+        description="Safety isolation transformers for electrical protection. 230V/230V, 1kVA-100kVA, 4kV isolation, Delhi, S.R. Electronics, SR Electronics, isolation transformer manufacturer"
+        keywords="isolation transformers, safety transformers, electrical isolation, Delhi, S.R. Electronics, SR Electronics, isolation transformer manufacturer"
         canonical="https://www.srelectronics.store/products/isolation-transformers"
+        ogImage="/ogimage.jpeg"
         schemaMarkup={isolationSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faq}
       />
       <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">

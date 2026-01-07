@@ -29,13 +29,10 @@ const DistributionTransformers = () => {
     { name: "Home", url: "https://www.srelectronics.store" },
     { name: "Products", url: "https://www.srelectronics.store#products" },
     { name: "Distribution Transformers", url: "https://www.srelectronics.store/products/distribution-transformers" }
-  ];, oil-cooled. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
-        keywords="distribution transformers, power distribution, oil cooled transformers, Delhi, S.R. Electronics, SR Electronics, distribution transformer supplier"
-        canonical="https://www.srelectronics.store/products/distribution-transformers"
-        ogImage="/ogimage.jpeg"
-        schemaMarkup={distSchema}
-        breadcrumbs={breadcrumbs}
-        faqSchema={faq
+  ];
+
+  const faq = [
+    {
       question: "What are distribution transformers used for?",
       answer: "Distribution transformers step down voltage from transmission lines to distribution levels suitable for end consumers in power distribution networks."
     },
@@ -61,10 +58,13 @@ const DistributionTransformers = () => {
     <>
       <SEOMeta 
         title="Distribution Transformers DT - S.R. Electronics | Power Distribution Manufacturer Delhi"
-        description="Reliable distribution transformers for power distribution networks. 11kV/415V, 25kVA-1000kVA. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
-        keywords="distribution transformers, power distribution, transformers Delhi, S.R. Electronics, SR Electronics"
+        description="Reliable distribution transformers for power distribution networks. 11kV/415V, 25kVA-1000kVA, oil-cooled. S.R. Electronics - ISO certified transformer manufacturer in Delhi."
+        keywords="distribution transformers, power distribution, oil cooled transformers, Delhi, S.R. Electronics, SR Electronics, distribution transformer supplier"
         canonical="https://www.srelectronics.store/products/distribution-transformers"
+        ogImage="/ogimage.jpeg"
         schemaMarkup={distSchema}
+        breadcrumbs={breadcrumbs}
+        faqSchema={faq}
       />
       <div className="min-h-screen bg-[#fffef8] pt-24 pb-16">
       <div className="container-premium">
