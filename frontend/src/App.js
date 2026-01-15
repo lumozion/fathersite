@@ -15,6 +15,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfService from "./components/TermsOfService";
 import LoadingScreen from "./components/LoadingScreen";
 import WhatsAppChat from "./components/WhatsAppChat";
+import AISalesWidget from "./components/AISalesWidget";
 import ControlTransformers from "./components/products/ControlTransformers";
 import PowerTransformers from "./components/products/PowerTransformers";
 import DistributionTransformers from "./components/products/DistributionTransformers";
@@ -57,6 +58,7 @@ const Home = () => {
         <Contact />
       </main>
       <Footer />
+      <AISalesWidget />
       <WhatsAppChat />
     </div>
   );
@@ -95,19 +97,19 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/privacy-policy" element={
             <PageWithLoading>
-              <Header /><PrivacyPolicy /><Footer /><WhatsAppChat />
+              <Header /><PrivacyPolicy /><Footer /><AISalesWidget /><WhatsAppChat />
             </PageWithLoading>
           } />
           <Route path="/terms-of-service" element={
             <PageWithLoading>
-              <Header /><TermsOfService /><Footer /><WhatsAppChat />
+              <Header /><TermsOfService /><Footer /><AISalesWidget /><WhatsAppChat />
             </PageWithLoading>
           } />
-          <Route path="/products/control-transformers" element={<><Header /><ControlTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/power-transformers" element={<><Header /><PowerTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/distribution-transformers" element={<><Header /><DistributionTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/isolation-transformers" element={<><Header /><IsolationTransformers /><Footer /><WhatsAppChat /></>} />
-          <Route path="/products/auto-transformers" element={<><Header /><AutoTransformers /><Footer /><WhatsAppChat /></>} />
+          <Route path="/products/control-transformers" element={<><Header /><ControlTransformers /><Footer /><AISalesWidget /><WhatsAppChat /></>} />
+          <Route path="/products/power-transformers" element={<><Header /><PowerTransformers /><Footer /><AISalesWidget /><WhatsAppChat /></>} />
+          <Route path="/products/distribution-transformers" element={<><Header /><DistributionTransformers /><Footer /><AISalesWidget /><WhatsAppChat /></>} />
+          <Route path="/products/isolation-transformers" element={<><Header /><IsolationTransformers /><Footer /><AISalesWidget /><WhatsAppChat /></>} />
+          <Route path="/products/auto-transformers" element={<><Header /><AutoTransformers /><Footer /><AISalesWidget /><WhatsAppChat /></>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
